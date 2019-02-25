@@ -3,7 +3,7 @@ const fs = require('fs');
 const fast = require('fast.js');
 const axios = require('axios').default;
 const { headers } = require('./headers');
-const BASE_URL = 'http://localhost:3000/api/weather-station';
+const BASE_URL = 'http://178.128.151.68/api/weather-station';
 console.log('Ready');
 watch(`${__dirname}/data`, { recursive: true }, async function(evt, name) {
   try {
@@ -49,6 +49,7 @@ watch(`${__dirname}/data`, { recursive: true }, async function(evt, name) {
       }
     }
   } catch (e) {
-    debugger;
+    console.log('ERROR');
+    console.log(e);
   }
 });
