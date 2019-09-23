@@ -20,7 +20,7 @@ watch(`${__dirname}/data`, { recursive: true }, async function(evt, name) {
     /* let head0 = arr[0].split(propsRegex);
     let head = arr[1].split(propsRegex);*/
 
-    const filter = e => {
+    const filter = (e) => {
       return e.trim().length > 0;
     };
     /* head0 = fast.filter(head0, filter);
@@ -35,11 +35,17 @@ watch(`${__dirname}/data`, { recursive: true }, async function(evt, name) {
       //DATE
       const [day, month, year] = result[0].split('/');
       const dateStr = `${month}/${day}/${year}`;
-      const date = new Date(dateStr);
-      debugger;
+
+      // Time
+      const rawTime = result[1];
+      const amPm = rawTime.charAt(rawTime.length - 1) === 'a' ? 'am' : 'pm';
+      const time = rawTime.substring(0, rawTime.length - 1) + ' ' + amPm;
+
+      const date = new Date(dateStr + ' ' + time);
+
       if (date > lastDate) {
         const json = {
-          date
+          date,
         };
         fast.forEach(headers, (item, index) => {
           json[item] = result[index];

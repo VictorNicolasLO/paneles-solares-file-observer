@@ -27,7 +27,6 @@ const headers = [
   'cool-d-d',
   'in-temp',
   'in-hum',
-  'in-hum',
   'in-dew',
   'in-heat',
   'in-emc',
@@ -36,9 +35,9 @@ const headers = [
   'wind-samp',
   'wind-tx',
   'iss-recept',
-  'arc-int'
+  'arc-int',
 ];
 
 module.exports = {
-  headers
+  headers,
 };
